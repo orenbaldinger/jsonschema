@@ -6,10 +6,10 @@ functions correctly and can facilitate extensions to type checking
 from collections import namedtuple
 from unittest import TestCase
 
-from jsonschema import ValidationError, _validators
-from jsonschema._types import TypeChecker
-from jsonschema.exceptions import UndefinedTypeCheck
-from jsonschema.validators import Draft4Validator, extend
+from jsonschemanlplab import ValidationError, _validators
+from jsonschemanlplab._types import TypeChecker
+from jsonschemanlplab.exceptions import UndefinedTypeCheck
+from jsonschemanlplab.validators import Draft4Validator, extend
 
 
 def equals_2(checker, instance):

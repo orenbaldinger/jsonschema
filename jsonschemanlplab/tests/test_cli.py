@@ -1,9 +1,9 @@
 from unittest import TestCase
 import json
 
-from jsonschema import Draft4Validator, ValidationError, cli
-from jsonschema.compat import NativeIO
-from jsonschema.exceptions import SchemaError
+from jsonschemanlplab import Draft4Validator, ValidationError, cli
+from jsonschemanlplab.compat import NativeIO
+from jsonschemanlplab.exceptions import SchemaError
 
 
 def fake_validator(*errors):
@@ -47,7 +47,7 @@ class TestParser(TestCase):
         arguments = cli.parse_args(
             [
                 "--validator",
-                "jsonschema.tests.test_cli.TestParser.FakeValidator",
+                "jsonschemanlplab.tests.test_cli.TestParser.FakeValidator",
                 "--instance", self.instance_file,
                 self.schema_file,
             ]

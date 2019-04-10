@@ -7,14 +7,14 @@ import numbers
 
 from six import add_metaclass
 
-from jsonschema import (
+from jsonschemanlplab import (
     _legacy_validators,
     _types,
     _utils,
     _validators,
     exceptions,
 )
-from jsonschema.compat import (
+from jsonschemanlplab.compat import (
     Sequence,
     int_types,
     iteritems,
@@ -30,7 +30,7 @@ from jsonschema.compat import (
 # Sigh. https://gitlab.com/pycqa/flake8/issues/280
 #       https://github.com/pyga/ebb-lint/issues/7
 # Imported for backwards compatibility.
-from jsonschema.exceptions import ErrorTree
+from jsonschemanlplab.exceptions import ErrorTree
 ErrorTree
 
 
@@ -186,14 +186,14 @@ def create(
             an identifier for the version that this validator class will
             validate. If provided, the returned validator class will have its
             ``__name__`` set to include the version, and also will have
-            `jsonschema.validators.validates` automatically called for the
+            `jsonschemanlplab.validators.validates` automatically called for the
             given version.
 
-        type_checker (jsonschema.TypeChecker):
+        type_checker (jsonschemanlplab.TypeChecker):
 
             a type checker, used when applying the :validator:`type` validator.
 
-            If unprovided, a `jsonschema.TypeChecker` will be created with
+            If unprovided, a `jsonschemanlplab.TypeChecker` will be created with
             a set of default types typical of JSON Schema drafts.
 
         default_types (collections.Mapping):
@@ -204,7 +204,7 @@ def create(
 
             If set, it provides mappings of JSON types to Python types that
             will be converted to functions and redefined in this object's
-            `jsonschema.TypeChecker`.
+            `jsonschemanlplab.TypeChecker`.
 
         id_of (callable):
 
@@ -212,7 +212,7 @@ def create(
 
     Returns:
 
-        a new `jsonschema.IValidator` class
+        a new `jsonschemanlplab.IValidator` class
     """
 
     if default_types is not None:
@@ -265,7 +265,7 @@ def create(
                 warn(
                     (
                         "The types argument is deprecated. Provide "
-                        "a type_checker to jsonschema.validators.extend "
+                        "a type_checker to jsonschemanlplab.validators.extend "
                         "instead."
                     ),
                     DeprecationWarning,
@@ -370,7 +370,7 @@ def extend(validator, validators=(), version=None, type_checker=None):
 
     Arguments:
 
-        validator (jsonschema.IValidator):
+        validator (jsonschemanlplab.IValidator):
 
             an existing validator class
 
@@ -395,16 +395,16 @@ def extend(validator, validators=(), version=None, type_checker=None):
 
             a version for the new validator class
 
-        type_checker (jsonschema.TypeChecker):
+        type_checker (jsonschemanlplab.TypeChecker):
 
             a type checker, used when applying the :validator:`type` validator.
 
             If unprovided, the type checker of the extended
-            `jsonschema.IValidator` will be carried along.`
+            `jsonschemanlplab.IValidator` will be carried along.`
 
     Returns:
 
-        a new `jsonschema.IValidator` class extending the one provided
+        a new `jsonschemanlplab.IValidator` class extending the one provided
 
     .. note:: Meta Schemas
 
@@ -791,7 +791,7 @@ class RefResolver(object):
 
         .. note::
 
-            If the requests_ library is present, ``jsonschema`` will use it to
+            If the requests_ library is present, ``jsonschemanlplab`` will use it to
             request the remote ``uri``, so that the correct encoding is
             detected and used.
 
@@ -879,15 +879,15 @@ def validate(instance, schema, cls=None, *args, **kwargs):
 
     Raises:
 
-        `jsonschema.exceptions.ValidationError` if the instance
+        `jsonschemanlplab.exceptions.ValidationError` if the instance
             is invalid
 
-        `jsonschema.exceptions.SchemaError` if the schema itself
+        `jsonschemanlplab.exceptions.SchemaError` if the schema itself
             is invalid
 
     .. rubric:: Footnotes
     .. [#] known by a validator registered with
-        `jsonschema.validators.validates`
+        `jsonschemanlplab.validators.validates`
     """
     if cls is None:
         cls = validator_for(schema)

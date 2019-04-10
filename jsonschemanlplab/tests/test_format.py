@@ -5,8 +5,8 @@ Tests for the parts of jsonschema related to the :validator:`format` property.
 
 from unittest import TestCase
 
-from jsonschema import FormatError, ValidationError, FormatChecker
-from jsonschema.validators import Draft4Validator
+from jsonschemanlplab import FormatError, ValidationError, FormatChecker
+from jsonschemanlplab.validators import Draft4Validator
 
 
 BOOM = ValueError("Boom!")

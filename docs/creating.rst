@@ -1,4 +1,4 @@
-.. currentmodule:: jsonschema.validators
+.. currentmodule:: jsonschemanlplab.validators
 
 .. _creating-validators:
 

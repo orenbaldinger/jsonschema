@@ -1,17 +1,17 @@
-==========
-jsonschema
-==========
+================
+jsonschemanlplab
+================
 
 
-.. module:: jsonschema
+.. module:: jsonschemanlplab
 
 
-``jsonschema`` is an implementation of `JSON Schema <https://json-schema.org>`_
+``jsonschemanlplab`` is an implementation of `JSON Schema <https://json-schema.org>`_
 for Python (supporting 2.7+ including Python 3).
 
 .. code-block:: python
 
-    >>> from jsonschema import validate
+    >>> from jsonschemanlplab import validate
 
     >>> # A sample schema, like what we'd get from json.load()
     >>> schema = {

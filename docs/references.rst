@@ -3,7 +3,7 @@ Resolving JSON References
 =========================
 
 
-.. currentmodule:: jsonschema
+.. currentmodule:: jsonschemanlplab
 
 .. autoclass:: RefResolver
     :members:

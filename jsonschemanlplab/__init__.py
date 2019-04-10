@@ -9,18 +9,18 @@ instance under a schema, and will create a validator for you.
 
 """
 
-from jsonschema.exceptions import (
+from jsonschemanlplab.exceptions import (
     ErrorTree, FormatError, RefResolutionError, SchemaError, ValidationError
 )
-from jsonschema._format import (
+from jsonschemanlplab._format import (
     FormatChecker,
     draft3_format_checker,
     draft4_format_checker,
     draft6_format_checker,
     draft7_format_checker,
 )
-from jsonschema._types import TypeChecker
-from jsonschema.validators import (
+from jsonschemanlplab._types import TypeChecker
+from jsonschemanlplab.validators import (
     Draft3Validator,
     Draft4Validator,
     Draft6Validator,

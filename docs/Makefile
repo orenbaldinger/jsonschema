@@ -87,9 +87,9 @@ qthelp:
 	@echo
 	@echo "Build finished; now you can run "qcollectiongenerator" with the" \
 	      ".qhcp project file in $(BUILDDIR)/qthelp, like this:"
-	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/jsonschema.qhcp"
+	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/jsonschemanlplab.qhcp"
 	@echo "To view the help file:"
-	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/jsonschema.qhc"
+	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/jsonschemanlplab.qhc"
 
 .PHONY: applehelp
 applehelp:
@@ -106,8 +106,8 @@ devhelp:
 	@echo
 	@echo "Build finished."
 	@echo "To view the help file:"
-	@echo "# mkdir -p $$HOME/.local/share/devhelp/jsonschema"
-	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/jsonschema"
+	@echo "# mkdir -p $$HOME/.local/share/devhelp/jsonschemanlplab"
+	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/jsonschemanlplab"
 	@echo "# devhelp"
 
 .PHONY: epub

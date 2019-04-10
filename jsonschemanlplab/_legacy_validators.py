@@ -1,6 +1,6 @@
-from jsonschema import _utils
-from jsonschema.compat import iteritems
-from jsonschema.exceptions import ValidationError
+from jsonschemanlplab import _utils
+from jsonschemanlplab.compat import iteritems
+from jsonschemanlplab.exceptions import ValidationError
 
 
 def dependencies_draft3(validator, dependencies, instance, schema):

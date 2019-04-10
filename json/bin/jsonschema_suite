@@ -16,12 +16,12 @@ if getattr(unittest, "skipIf", None) is None:
     unittest.skipIf = lambda cond, msg : lambda fn : fn
 
 try:
-    import jsonschema
+    import jsonschemanlplab
 except ImportError:
-    jsonschema = None
+    jsonschemanlplab = None
 else:
     validators = getattr(
-        jsonschema.validators, "validators", jsonschema.validators
+        jsonschemanlplab.validators, "validators", jsonschemanlplab.validators
     )
 
 
@@ -108,7 +108,7 @@ class SanityTests(unittest.TestCase):
                 "%r contains a duplicate description" % (group,)
             )
 
-    @unittest.skipIf(jsonschema is None, "Validation library not present!")
+    @unittest.skipIf(jsonschemanlplab is None, "Validation library not present!")
     def test_all_schemas_are_valid(self):
         for schema in os.listdir(SUITE_ROOT_DIR):
             schema_validator = validators.get(schema)
@@ -117,19 +117,19 @@ class SanityTests(unittest.TestCase):
                 for case in cases(test_files):
                     try:
                         schema_validator.check_schema(case["schema"])
-                    except jsonschema.SchemaError as error:
+                    except jsonschemanlplab.SchemaError as error:
                         self.fail("%s contains an invalid schema (%s)" %
                                   (case, error))
             else:
                 warnings.warn("No schema validator for %s" % schema)
 
-    @unittest.skipIf(jsonschema is None, "Validation library not present!")
+    @unittest.skipIf(jsonschemanlplab is None, "Validation library not present!")
     def test_suites_are_valid(self):
-        validator = jsonschema.Draft3Validator(TESTSUITE_SCHEMA)
+        validator = jsonschemanlplab.Draft3Validator(TESTSUITE_SCHEMA)
         for tests in files(self.test_files):
             try:
                 validator.validate(tests)
-            except jsonschema.ValidationError as error:
+            except jsonschemanlplab.ValidationError as error:
                 self.fail(str(error))
 
     def test_remote_schemas_are_updated(self):

@@ -12,9 +12,9 @@ import unittest
 from twisted.trial.unittest import SynchronousTestCase
 import attr
 
-from jsonschema import FormatChecker, TypeChecker, exceptions, validators
-from jsonschema.compat import PY3, pathname2url
-import jsonschema
+from jsonschemanlplab import FormatChecker, TypeChecker, exceptions, validators
+from jsonschemanlplab.compat import PY3, pathname2url
+import jsonschemanlplab
 
 
 def startswith(validator, startswith, instance, schema):
@@ -384,7 +384,7 @@ class TestLegacyTypeChecking(SynchronousTestCase):
             category=DeprecationWarning,
             message=(
                 "The types argument is deprecated. "
-                "Provide a type_checker to jsonschema.validators.extend "
+                "Provide a type_checker to jsonschemanlplab.validators.extend "
                 "instead."
             ),
             # https://tm.tl/9363 :'(
@@ -1360,10 +1360,10 @@ class TestBuiltinFormats(TestCase):
 
 
 for Validator, checker in (
-    (validators.Draft3Validator, jsonschema.draft3_format_checker),
-    (validators.Draft4Validator, jsonschema.draft4_format_checker),
-    (validators.Draft6Validator, jsonschema.draft6_format_checker),
-    (validators.Draft7Validator, jsonschema.draft7_format_checker),
+    (validators.Draft3Validator, jsonschemanlplab.draft3_format_checker),
+    (validators.Draft4Validator, jsonschemanlplab.draft4_format_checker),
+    (validators.Draft6Validator, jsonschemanlplab.draft6_format_checker),
+    (validators.Draft7Validator, jsonschemanlplab.draft7_format_checker),
 ):
     for format in checker.checkers:
         def test(self, checker=checker, format=format):

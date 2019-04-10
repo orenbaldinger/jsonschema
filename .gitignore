@@ -3,3 +3,7 @@ _static
 _templates
 
 TODO
+/.eggs/
+/build/
+/.tox/
+/jsonschemanlplab.egg-info/

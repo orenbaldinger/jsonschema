@@ -2,7 +2,7 @@
 Handling Validation Errors
 ==========================
 
-.. currentmodule:: jsonschema.exceptions
+.. currentmodule:: jsonschemanlplab.exceptions
 
 When an invalid instance is encountered, a `ValidationError` will be
 raised or returned, depending on which method or function is used.
@@ -106,7 +106,7 @@ raised or returned, depending on which method or function is used.
         If the error was caused by a *non*-validation error, the
         exception object will be here. Currently this is only used
         for the exception raised by a failed format checker in
-        `jsonschema.FormatChecker.check`.
+        `jsonschemanlplab.FormatChecker.check`.
 
     .. attribute:: parent
 
@@ -223,9 +223,9 @@ ErrorTrees
 
 If you want to programmatically be able to query which properties or validators
 failed when validating a given instance, you probably will want to do so using
-`jsonschema.exceptions.ErrorTree` objects.
+`jsonschemanlplab.exceptions.ErrorTree` objects.
 
-.. autoclass:: jsonschema.exceptions.ErrorTree
+.. autoclass:: jsonschemanlplab.exceptions.ErrorTree
     :members:
     :special-members:
     :exclude-members: __dict__,__weakref__
@@ -233,7 +233,7 @@ failed when validating a given instance, you probably will want to do so using
     .. attribute:: errors
 
         The mapping of validator names to the error objects (usually
-        `jsonschema.exceptions.ValidationError`\s) at this level
+        `jsonschemanlplab.exceptions.ValidationError`\s) at this level
         of the tree.
 
 Consider the following example:
@@ -261,7 +261,7 @@ For clarity's sake, the given instance has three errors under this schema:
     'spam' is not one of [1, 2, 3]
     ['spam', 2] is too short
 
-Let's construct an `jsonschema.exceptions.ErrorTree` so that we
+Let's construct an `jsonschemanlplab.exceptions.ErrorTree` so that we
 can query the errors a bit more easily than by just iterating over the
 error objects.
 
@@ -269,10 +269,10 @@ error objects.
 
     tree = ErrorTree(v.iter_errors(instance))
 
-As you can see, `jsonschema.exceptions.ErrorTree` takes an
+As you can see, `jsonschemanlplab.exceptions.ErrorTree` takes an
 iterable of `ValidationError`\s when constructing a tree so
 you can directly pass it the return value of a validator object's
-`jsonschema.IValidator.iter_errors` method.
+`jsonschemanlplab.IValidator.iter_errors` method.
 
 `ErrorTree`\s support a number of useful operations. The first one we
 might want to perform is to check whether a given element in our instance
@@ -347,8 +347,16 @@ to guess the most relevant error in a given bunch.
 
 .. doctest::
 
-        >>> from jsonschema import Draft7Validator
-        >>> from jsonschema.exceptions import best_match
+        >>> from jsonschemanlplab import Draft7Validator
+                >>> from jsonschemanlplab.exceptions import best_match
+
+                >>> schema = {
+                ...     "type": "array",
+                ...     "minItems": 3,
+                ... }
+                >>> print(best_match(Draft7Validator(schema).iter_errors(11)).message)
+                11 is not of type 'array'
+        >>> from jsonschemanlplab.exceptions import best_match
 
         >>> schema = {
         ...     "type": "array",

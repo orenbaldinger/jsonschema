@@ -3,13 +3,13 @@ import argparse
 import json
 import sys
 
-from jsonschema._reflect import namedAny
-from jsonschema.validators import validator_for
+from jsonschemanlplab._reflect import namedAny
+from jsonschemanlplab.validators import validator_for
 
 
 def _namedAnyWithDefault(name):
     if "." not in name:
-        name = "jsonschema." + name
+        name = "jsonschemanlplab." + name
     return namedAny(name)
 
 
@@ -45,7 +45,7 @@ parser.add_argument(
     type=_namedAnyWithDefault,
     help=(
         "the fully qualified object name of a validator to use, or, for "
-        "validators that are registered with jsonschema, simply the name "
+        "validators that are registered with jsonschemanlplab, simply the name "
         "of the class."
     ),
 )

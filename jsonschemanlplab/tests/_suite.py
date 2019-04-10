@@ -13,9 +13,9 @@ import unittest
 from twisted.python.filepath import FilePath
 import attr
 
-from jsonschema.compat import PY3
-from jsonschema.validators import validators
-import jsonschema
+from jsonschemanlplab.compat import PY3
+from jsonschemanlplab.validators import validators
+import jsonschemanlplab
 
 
 def _find_suite():
@@ -23,7 +23,7 @@ def _find_suite():
     if root is not None:
         return FilePath(root)
 
-    root = FilePath(jsonschema.__file__).parent().sibling("json")
+    root = FilePath(jsonschemanlplab.__file__).parent().sibling("json")
     if not root.isdir():  # pragma: no cover
         raise ValueError(
             (
@@ -195,7 +195,7 @@ class _Test(object):
                 self.validate(**kwargs)
         else:
             def fn(this):
-                with this.assertRaises(jsonschema.ValidationError):
+                with this.assertRaises(jsonschemanlplab.ValidationError):
                     self.validate(**kwargs)
 
         fn.__name__ = self.method_name
@@ -203,10 +203,10 @@ class _Test(object):
         return unittest.skipIf(reason is not None, reason)(fn)
 
     def validate(self, Validator=None, **kwargs):
-        resolver = jsonschema.RefResolver.from_schema(
+        resolver = jsonschemanlplab.RefResolver.from_schema(
             schema=self.schema, store=self._remotes,
         )
-        jsonschema.validate(
+        jsonschemanlplab.validate(
             instance=self.data,
             schema=self.schema,
             cls=Validator,
@@ -217,7 +217,7 @@ class _Test(object):
     def validate_ignoring_errors(self, **kwargs):  # pragma: no cover
         try:
             self.validate(**kwargs)
-        except jsonschema.ValidationError:
+        except jsonschemanlplab.ValidationError:
             pass
 
 

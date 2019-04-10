@@ -3,8 +3,8 @@ import re
 import socket
 import struct
 
-from jsonschema.compat import str_types
-from jsonschema.exceptions import FormatError
+from jsonschemanlplab.compat import str_types
+from jsonschemanlplab.exceptions import FormatError
 
 
 class FormatChecker(object):
@@ -55,7 +55,7 @@ class FormatChecker(object):
                 invalid instance is found.
 
                 The exception object will be accessible as the
-                `jsonschema.exceptions.ValidationError.cause` attribute of the
+                `jsonschemanlplab.exceptions.ValidationError.cause` attribute of the
                 resulting validation error.
 
         """

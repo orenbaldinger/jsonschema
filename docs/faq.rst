@@ -16,16 +16,16 @@ It's perfectly valid (and perhaps even useful) to have a default that is not
 valid under the schema it lives in! So an instance modified by the default
 would pass validation the first time, but fail the second!
 
-Still, filling in defaults is a thing that is useful. `jsonschema` allows
+Still, filling in defaults is a thing that is useful. `jsonschemanlplab` allows
 you to `define your own validator classes and callables <creating>`, so you can
-easily create an `jsonschema.IValidator` that does do default setting. Here's
+easily create an `jsonschemanlplab.IValidator` that does do default setting. Here's
 some code to get you started. (In this code, we add the default properties to
 each object *before* the properties are validated, so the default values
 themselves will need to be valid under the schema.)
 
     .. code-block:: python
 
-        from jsonschema import Draft7Validator, validators
+        from jsonschemanlplab import Draft7Validator, validators
 
 
         def extend_with_default(validator_class):
@@ -60,7 +60,7 @@ themselves will need to be valid under the schema.)
 
 See the above-linked document for more info on how this works, but
 basically, it just extends the :validator:`properties` validator on a
-`jsonschema.Draft7Validator` to then go ahead and update all the
+`jsonschemanlplab.Draft7Validator` to then go ahead and update all the
 defaults.
 
 .. note::
@@ -68,7 +68,7 @@ defaults.
     If you're interested in a more interesting solution to a larger class of these
     types of transformations, keep an eye on `Seep
     <https://github.com/Julian/Seep>`_, which is an experimental data
-    transformation and extraction library written on top of `jsonschema`.
+    transformation and extraction library written on top of `jsonschemanlplab`.
 
 
 .. hint::
@@ -112,7 +112,7 @@ defaults.
 How do jsonschema version numbers work?
 ---------------------------------------
 
-``jsonschema`` tries to follow the `Semantic Versioning <https://semver.org/>`_
+``jsonschemanlplab`` tries to follow the `Semantic Versioning <https://semver.org/>`_
 specification.
 
 This means broadly that no backwards-incompatible changes should be made in
@@ -134,7 +134,7 @@ The following are *not* considered public API and may change without notice:
     * the exact wording and contents of error messages; typical
       reasons to do this seem to involve unit tests. API users are
       encouraged to use the extensive introspection provided in
-      `jsonschema.exceptions.ValidationError`\s instead to make
+      `jsonschemanlplab.exceptions.ValidationError`\s instead to make
       meaningful assertions about what failed.
 
     * the order in which validation errors are returned or raised

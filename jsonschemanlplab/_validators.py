@@ -1,8 +1,8 @@
 import re
 
-from jsonschema import _utils
-from jsonschema.exceptions import FormatError, ValidationError
-from jsonschema.compat import iteritems
+from jsonschemanlplab import _utils
+from jsonschemanlplab.exceptions import FormatError, ValidationError
+from jsonschemanlplab.compat import iteritems
 
 
 def patternProperties(validator, patternProperties, instance, schema):

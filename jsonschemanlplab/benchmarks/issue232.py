@@ -9,15 +9,15 @@ from twisted.python.filepath import FilePath
 from perf import Runner
 from pyrsistent import m
 
-from jsonschema.tests._suite import Collection
-import jsonschema
+from jsonschemanlplab.tests._suite import Collection
+import jsonschemanlplab
 
 
 collection = Collection(
     path=FilePath(__file__).sibling("issue232"),
     remotes=m(),
     name="issue232",
-    validator=jsonschema.Draft7Validator,
+    validator=jsonschemanlplab.Draft7Validator,
 )
 
 

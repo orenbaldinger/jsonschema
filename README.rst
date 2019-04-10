@@ -1,6 +1,6 @@
-==========
-jsonschema
-==========
+================
+jsonschemanlplab
+================
 
 |PyPI| |Pythons| |Travis| |AppVeyor| |ReadTheDocs|
 
@@ -24,13 +24,15 @@ jsonschema
    :alt: ReadTheDocs status
    :target: https://python-jsonschema.readthedocs.io/en/stable/
 
+This is a fork of https://github.com/Julian/jsonschema which exists only to circumvent dependency incompatibilities. 
 
-``jsonschema`` is an implementation of `JSON Schema <https://json-schema.org>`_
+
+``jsonschemanlplab`` is an implementation of `JSON Schema <https://json-schema.org>`_
 for Python (supporting 2.7+ including Python 3).
 
 .. code-block:: python
 
-    >>> from jsonschema import validate
+    >>> from jsonschemanlplab import validate
 
     >>> # A sample schema, like what we'd get from json.load()
     >>> schema = {
@@ -55,7 +57,7 @@ It can also be used from console:
 
 .. code-block:: bash
 
-    $ jsonschema -i sample.json sample.schema
+    $ jsonschemanlplab -i sample.json sample.schema
 
 Features
 --------
@@ -77,11 +79,11 @@ Features
 Installation
 ------------
 
-``jsonschema`` is available on `PyPI <https://pypi.org/project/jsonschema/>`_. You can install using `pip <https://pip.pypa.io/en/stable/>`_:
+``jsonschemanlplab`` is available on `PyPI <https://pypi.org/project/jsonschemanlplab/>`_. You can install using `pip <https://pip.pypa.io/en/stable/>`_:
 
 .. code-block:: bash
 
-    $ pip install jsonschema
+    $ pip install jsonschemanlplab
 
 
 Release Notes
@@ -91,7 +93,7 @@ Version 3.0 brings support for Draft 7 (and 6). The interface for redefining
 types has also been majorly overhauled to support easier redefinition of the
 types a Validator will accept or allow.
 
-jsonschema is also now tested under Windows via AppVeyor.
+jsonschemanlplab is also now tested under Windows via AppVeyor.
 
 Thanks to all who contributed pull requests along the way.
 
@@ -101,25 +103,25 @@ Running the Test Suite
 
 If you have ``tox`` installed (perhaps via ``pip install tox`` or your
 package manager), running ``tox`` in the directory of your source
-checkout will run ``jsonschema``'s test suite on all of the versions
-of Python ``jsonschema`` supports. If you don't have all of the
-versions that ``jsonschema`` is tested under, you'll likely want to run
+checkout will run ``jsonschemanlplab``'s test suite on all of the versions
+of Python ``jsonschemanlplab`` supports. If you don't have all of the
+versions that ``jsonschemanlplab`` is tested under, you'll likely want to run
 using ``tox``'s ``--skip-missing-interpreters`` option.
 
 Of course you're also free to just run the tests on a single version with your
-favorite test runner. The tests live in the ``jsonschema.tests`` package.
+favorite test runner. The tests live in the ``jsonschemanlplab.tests`` package.
 
 
 Benchmarks
 ----------
 
-``jsonschema``'s benchmarks make use of `perf <https://perf.readthedocs.io>`_.
+``jsonschemanlplab``'s benchmarks make use of `perf <https://perf.readthedocs.io>`_.
 
 Running them can be done via ``tox -e perf``, or by invoking the ``perf``
-commands externally (after ensuring that both it and ``jsonschema`` itself are
+commands externally (after ensuring that both it and ``jsonschemanlplab`` itself are
 installed)::
 
-    $ python -m perf jsonschema/benchmarks/test_suite.py --hist --output results.json
+    $ python -m perf jsonschemanlplab/benchmarks/test_suite.py --hist --output results.json
 
 To compare to a previous run, use::
 

@@ -9,7 +9,7 @@ See https://github.com/json-schema-org/JSON-Schema-Test-Suite for details.
 import sys
 import warnings
 
-from jsonschema import (
+from jsonschemanlplab import (
     Draft3Validator,
     Draft4Validator,
     Draft6Validator,
@@ -19,8 +19,8 @@ from jsonschema import (
     draft6_format_checker,
     draft7_format_checker,
 )
-from jsonschema.tests._suite import Suite
-from jsonschema.validators import _DEPRECATED_DEFAULT_TYPES, create
+from jsonschemanlplab.tests._suite import Suite
+from jsonschemanlplab.validators import _DEPRECATED_DEFAULT_TYPES, create
 
 
 SUITE = Suite()

@@ -3,8 +3,8 @@ import numbers
 from pyrsistent import pmap
 import attr
 
-from jsonschema.compat import int_types, str_types
-from jsonschema.exceptions import UndefinedTypeCheck
+from jsonschemanlplab.compat import int_types, str_types
+from jsonschemanlplab.exceptions import UndefinedTypeCheck
 
 
 def is_array(checker, instance):
@@ -84,7 +84,7 @@ class TypeChecker(object):
 
         Raises:
 
-            `jsonschema.exceptions.UndefinedTypeCheck`:
+            `jsonschemanlplab.exceptions.UndefinedTypeCheck`:
                 if type is unknown to this object.
         """
         try:
@@ -151,7 +151,7 @@ class TypeChecker(object):
 
         Raises:
 
-            `jsonschema.exceptions.UndefinedTypeCheck`:
+            `jsonschemanlplab.exceptions.UndefinedTypeCheck`:
 
                 if any given type is unknown to this object
         """

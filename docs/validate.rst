@@ -3,7 +3,7 @@ Schema Validation
 =================
 
 
-.. currentmodule:: jsonschema
+.. currentmodule:: jsonschemanlplab
 
 
 The Basics
@@ -23,7 +23,7 @@ The simplest way to validate an instance under a given schema is to use the
 The Validator Interface
 -----------------------
 
-`jsonschema` defines an (informal) interface that all validator
+`jsonschemanlplab` defines an (informal) interface that all validator
 classes should adhere to.
 
 .. class:: IValidator(schema, types=(), resolver=None, format_checker=None)
@@ -46,7 +46,7 @@ classes should adhere to.
         .. deprecated:: 3.0.0
 
             Use `TypeChecker.redefine` and
-            `jsonschema.validators.extend` instead of this argument.
+            `jsonschemanlplab.validators.extend` instead of this argument.
 
                 See `validating-types` for details.
 
@@ -98,7 +98,7 @@ classes should adhere to.
 
         Validate the given schema against the validator's `META_SCHEMA`.
 
-        :raises: `jsonschema.exceptions.SchemaError` if the schema
+        :raises: `jsonschemanlplab.exceptions.SchemaError` if the schema
             is invalid
 
     .. method:: is_type(instance, type)
@@ -107,7 +107,7 @@ classes should adhere to.
 
         :type type: str
         :rtype: bool
-        :raises: `jsonschema.exceptions.UnknownType` if ``type``
+        :raises: `jsonschemanlplab.exceptions.UnknownType` if ``type``
             is not a known type.
 
     .. method:: is_valid(instance)
@@ -125,7 +125,7 @@ classes should adhere to.
         Lazily yield each of the validation errors in the given instance.
 
         :rtype: an `collections.Iterable` of
-            `jsonschema.exceptions.ValidationError`\s
+            `jsonschemanlplab.exceptions.ValidationError`\s
 
         >>> schema = {
         ...     "type" : "array",
@@ -142,7 +142,7 @@ classes should adhere to.
 
         Check if the instance is valid under the current `schema`.
 
-        :raises: `jsonschema.exceptions.ValidationError` if the
+        :raises: `jsonschemanlplab.exceptions.ValidationError` if the
             instance is invalid
 
         >>> schema = {"maxItems" : 2}
@@ -153,7 +153,7 @@ classes should adhere to.
 
 
 All of the `versioned validators <versioned-validators>` that are included with
-`jsonschema` adhere to the interface, and implementers of validator classes
+`jsonschemanlplab` adhere to the interface, and implementers of validator classes
 that extend or complement the ones included should adhere to it as well. For
 more information see `creating-validators`.
 
@@ -165,7 +165,7 @@ an associated `TypeChecker`. The type checker provides an immutable
 mapping between names of types and functions that can test if an instance is
 of that type. The defaults are suitable for most users - each of the
 `versioned validators <versioned-validators>` that are included with
-`jsonschema` have a `TypeChecker` that can correctly handle their respective
+`jsonschemanlplab` have a `TypeChecker` that can correctly handle their respective
 versions.
 
 .. seealso:: `validating-types`
@@ -175,10 +175,10 @@ versions.
 .. autoclass:: TypeChecker
     :members:
 
-.. autoexception:: jsonschema.exceptions.UndefinedTypeCheck
+.. autoexception:: jsonschemanlplab.exceptions.UndefinedTypeCheck
 
     Raised when trying to remove a type check that is not known to this
-    TypeChecker, or when calling `jsonschema.TypeChecker.is_type`
+    TypeChecker, or when calling `jsonschemanlplab.TypeChecker.is_type`
     directly.
 
 .. _validating-types:
@@ -189,7 +189,7 @@ Validating With Additional Types
 Occasionally it can be useful to provide additional or alternate types when
 validating the JSON Schema's :validator:`type` property.
 
-`jsonschema` tries to strike a balance between performance in the common
+`jsonschemanlplab` tries to strike a balance between performance in the common
 case and generality. For instance, JSON Schema defines a ``number`` type, which
 can be validated with a schema such as ``{"type" : "number"}``. By default,
 this will accept instances of Python `numbers.Number`. This includes in
@@ -197,14 +197,14 @@ particular `int`\s and `float`\s, along with
 `decimal.Decimal` objects, `complex` numbers etc. For
 ``integer`` and ``object``, however, rather than checking for
 `numbers.Integral` and `collections.abc.Mapping`,
-`jsonschema` simply checks for `int` and `dict`, since the
+`jsonschemanlplab` simply checks for `int` and `dict`, since the
 more general instance checks can introduce significant slowdown, especially
 given how common validating these types are.
 
 If you *do* want the generality, or just want to add a few specific additional
 types as being acceptable for a validator object, then you should update an
 existing `TypeChecker` or create a new one. You may then create a new
-`IValidator` via `jsonschema.validators.extend`.
+`IValidator` via `jsonschemanlplab.validators.extend`.
 
 .. code-block:: python
 
@@ -223,14 +223,14 @@ existing `TypeChecker` or create a new one. You may then create a new
     validator = CustomValidator(schema={"type" : "number"})
 
 
-.. autoexception:: jsonschema.exceptions.UnknownType
+.. autoexception:: jsonschemanlplab.exceptions.UnknownType
 
 .. _versioned-validators:
 
 Versioned Validators
 --------------------
 
-`jsonschema` ships with validator classes for various versions of
+`jsonschemanlplab` ships with validator classes for various versions of
 the JSON Schema specification. For details on the methods and attributes
 that each validator class provides see the `IValidator` interface,
 which each included validator class implements.
@@ -249,7 +249,7 @@ Draft 6 meta-schema, you could use:
 
 .. code-block:: python
 
-    from jsonschema import Draft6Validator
+    from jsonschemanlplab import Draft6Validator
 
     schema = {
         "$schema": "https://json-schema.org/schema#",
@@ -308,7 +308,7 @@ validation can be enabled by hooking in a format-checking object into an
         :argument Exception raises: the exception(s) raised
             by the decorated function when an invalid instance is
             found. The exception object will be accessible as the
-            `jsonschema.exceptions.ValidationError.cause` attribute
+            `jsonschemanlplab.exceptions.ValidationError.cause` attribute
             of the resulting validation error.
 
 
@@ -320,12 +320,12 @@ There are a number of default checkers that `FormatChecker`\s know how
 to validate. Their names can be viewed by inspecting the
 `FormatChecker.checkers` attribute. Certain checkers will only be
 available if an appropriate package is available for use. The easiest way to
-ensure you have what is needed is to install ``jsonschema`` using the
+ensure you have what is needed is to install ``jsonschemanlplab`` using the
 ``format`` setuptools extra -- i.e.
 
 .. code-block:: sh
 
-   $ pip install jsonschema[format]
+   $ pip install jsonschemanlplab[format]
 
 which will install all of the below dependencies for all formats. The
 more specific list of available checkers, along with their requirement

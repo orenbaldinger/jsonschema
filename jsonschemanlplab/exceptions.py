@@ -5,8 +5,8 @@ import textwrap
 
 import attr
 
-from jsonschema import _utils
-from jsonschema.compat import PY3, iteritems
+from jsonschemanlplab import _utils
+from jsonschemanlplab.compat import PY3, iteritems
 
 
 WEAK_MATCHES = frozenset(["anyOf", "oneOf"])

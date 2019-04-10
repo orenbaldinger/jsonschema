@@ -6,7 +6,7 @@ from textwrap import dedent
 import os
 import sys
 
-import jsonschema
+import jsonschemanlplab
 
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -48,7 +48,7 @@ source_suffix = ".rst"
 master_doc = "index"
 
 # General information about the project.
-project = u"jsonschema"
+project = u"jsonschemanlplab"
 author = u"Julian Berman"
 copyright = u"2013, " + author
 
@@ -58,7 +58,7 @@ copyright = u"2013, " + author
 #
 # version: The short X.Y version
 # release: The full version, including alpha/beta/rc tags.
-release = jsonschema.__version__
+release = jsonschemanlplab.__version__
 version = release.partition("-")[0]
 
 # There are two options for replacing |today|: either, you set today to some
@@ -82,7 +82,7 @@ pygments_style = "sphinx"
 
 doctest_global_setup = dedent("""
     from __future__ import print_function
-    from jsonschema import *
+    from jsonschemanlplab import *
 """)
 
 intersphinx_mapping = {
@@ -178,8 +178,8 @@ htmlhelp_basename = "jsonschemadoc"
 latex_documents = [
   (
       "index",
-      "jsonschema.tex",
-      u"jsonschema Documentation",
+      "jsonschemanlplab.tex",
+      u"jsonschemanlplab Documentation",
       author,
       "manual",
   ),
@@ -213,8 +213,8 @@ latex_documents = [
 man_pages = [
     (
         "index",
-        "jsonschema",
-        u"jsonschema Documentation",
+        "jsonschemanlplab",
+        u"jsonschemanlplab Documentation",
         [author],
         1,
     ),
@@ -232,10 +232,10 @@ man_pages = [
 texinfo_documents = [
   (
       "index",
-      "jsonschema",
-      u"jsonschema Documentation",
+      "jsonschemanlplab",
+      u"jsonschemanlplab Documentation",
       author,
-      "jsonschema",
+      "jsonschemanlplab",
       "One line description of project.",
       "Miscellaneous",
   ),
